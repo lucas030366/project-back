@@ -1,0 +1,21 @@
+type User {
+  id: ID! @unique
+  nome: String!
+	email: String! @unique
+	senha: String! 
+}
+
+type Client {
+  id: ID! @unique
+  nome: String!
+  telefone: String!
+  endereco: String!
+  user: User!
+}
+
+type Order {
+  id: ID! @unique
+  client: Client!
+  descricao: String!
+  valor: Float!
+}

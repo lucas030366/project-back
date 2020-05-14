@@ -1,0 +1,51 @@
+type Query {
+
+  user: User
+
+  client(clientId: ID): Client
+
+  clients(user: ID ): [ Client! ]!
+
+  orders(clientId: ID): [ Order! ]!
+
+}
+
+type Mutation {
+
+  login(email: String!, senha: String!): AuthPayload
+
+  signup(nome: String!, email: String!, senha: String!): AuthPayload
+
+  createClient(nome: String!, telefone: String!, endereco: String!): Client!
+
+  updateClient(clientId: ID!, nome: String!, telefone: String!, endereco: String!): Client!
+
+  createOrder(clientId: ID!, descricao: String!, valor: Float!): Order!
+
+}
+
+type AuthPayload {
+  token: String!
+  user: User!
+}
+
+type User {
+  id: ID! 
+  nome: String!
+	email: String! 
+}
+
+type Client {
+  id: ID!
+  nome: String!
+  telefone: String!
+  endereco: String!
+  user: User!
+}
+
+type Order {
+  id: ID!
+  client: Client!
+  descricao: String!
+  valor: Float!
+}
