@@ -8,6 +8,8 @@ type Query {
 
   orders(clientId: ID): [ Order! ]!
 
+  order(orderId: ID!): Order!
+
 }
 
 type Mutation {

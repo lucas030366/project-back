@@ -37,9 +37,16 @@ function orders(parent, { clientId }, context, info) {
   }, info)
 }
 
+function order(parent, { orderId }, context, info) {
+  return context.db.query.order({
+    where: { id: orderId }
+  }, info)
+}
+
 module.exports = {
   user,
   clients,
   client,
-  orders
+  orders,
+  order
 }
