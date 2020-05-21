@@ -22,6 +22,8 @@ type Mutation {
 
   updateClient(clientId: ID!, nome: String!, telefone: String!, endereco: String!): Client!
 
+  deleteClient(clientId: ID!): Client
+
   createOrder(clientId: ID!, descricao: String!, valor: Float!): Order!
 
 }

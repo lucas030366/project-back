@@ -93,10 +93,17 @@ function createOrder(parent, { clientId, descricao, valor }, context, info) {
 
 }
 
+function deleteClient(parent, { clientId }, context, info) {
+  return context.db.mutation.deleteClient({
+    where: { id: clientId }
+  }, info)
+}
+
 module.exports = {
   signup,
   login,
   createClient,
   updateClient,
+  deleteClient,
   createOrder
 }
