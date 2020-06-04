@@ -32,8 +32,7 @@ function orders(parent, { clientId }, context, info) {
   return context.db.query.orders({
     where: {
       client: { id: clientId }
-    },
-    orderBy: "createdAt_ASC"
+    }
   }, info)
 }
 

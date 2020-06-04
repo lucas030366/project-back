@@ -25,6 +25,8 @@ type Client {
   telefone: String!
   endereco: String!
   user: User!
+  updatedAt: DateTime!
+  createdAt: DateTime!
 }
 
 type ClientConnection {
@@ -34,6 +36,7 @@ type ClientConnection {
 }
 
 input ClientCreateInput {
+  id: ID
   nome: String!
   telefone: String!
   endereco: String!
@@ -59,6 +62,10 @@ enum ClientOrderByInput {
   telefone_DESC
   endereco_ASC
   endereco_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
 }
 
 type ClientPreviousValues {
@@ -66,6 +73,8 @@ type ClientPreviousValues {
   nome: String!
   telefone: String!
   endereco: String!
+  updatedAt: DateTime!
+  createdAt: DateTime!
 }
 
 type ClientSubscriptionPayload {
@@ -176,6 +185,22 @@ input ClientWhereInput {
   endereco_ends_with: String
   endereco_not_ends_with: String
   user: UserWhereInput
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
   AND: [ClientWhereInput!]
   OR: [ClientWhereInput!]
   NOT: [ClientWhereInput!]
@@ -184,6 +209,8 @@ input ClientWhereInput {
 input ClientWhereUniqueInput {
   id: ID
 }
+
+scalar DateTime
 
 scalar Long
 
@@ -223,6 +250,8 @@ type Order {
   client: Client!
   descricao: String!
   valor: Float!
+  updatedAt: DateTime!
+  createdAt: DateTime!
 }
 
 type OrderConnection {
@@ -232,6 +261,7 @@ type OrderConnection {
 }
 
 input OrderCreateInput {
+  id: ID
   client: ClientCreateOneInput!
   descricao: String!
   valor: Float!
@@ -249,12 +279,18 @@ enum OrderOrderByInput {
   descricao_DESC
   valor_ASC
   valor_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
 }
 
 type OrderPreviousValues {
   id: ID!
   descricao: String!
   valor: Float!
+  updatedAt: DateTime!
+  createdAt: DateTime!
 }
 
 type OrderSubscriptionPayload {
@@ -324,6 +360,22 @@ input OrderWhereInput {
   valor_lte: Float
   valor_gt: Float
   valor_gte: Float
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
   AND: [OrderWhereInput!]
   OR: [OrderWhereInput!]
   NOT: [OrderWhereInput!]
@@ -364,6 +416,8 @@ type User {
   nome: String!
   email: String!
   senha: String!
+  updatedAt: DateTime!
+  createdAt: DateTime!
 }
 
 type UserConnection {
@@ -373,6 +427,7 @@ type UserConnection {
 }
 
 input UserCreateInput {
+  id: ID
   nome: String!
   email: String!
   senha: String!
@@ -397,6 +452,10 @@ enum UserOrderByInput {
   email_DESC
   senha_ASC
   senha_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
 }
 
 type UserPreviousValues {
@@ -404,6 +463,8 @@ type UserPreviousValues {
   nome: String!
   email: String!
   senha: String!
+  updatedAt: DateTime!
+  createdAt: DateTime!
 }
 
 type UserSubscriptionPayload {
@@ -511,6 +572,22 @@ input UserWhereInput {
   senha_not_starts_with: String
   senha_ends_with: String
   senha_not_ends_with: String
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
   AND: [UserWhereInput!]
   OR: [UserWhereInput!]
   NOT: [UserWhereInput!]

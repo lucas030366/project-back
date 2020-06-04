@@ -187,7 +187,11 @@ export type ClientOrderByInput =
   | "telefone_ASC"
   | "telefone_DESC"
   | "endereco_ASC"
-  | "endereco_DESC";
+  | "endereco_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC";
 
 export type OrderOrderByInput =
   | "id_ASC"
@@ -195,7 +199,11 @@ export type OrderOrderByInput =
   | "descricao_ASC"
   | "descricao_DESC"
   | "valor_ASC"
-  | "valor_DESC";
+  | "valor_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC";
 
 export type UserOrderByInput =
   | "id_ASC"
@@ -205,7 +213,11 @@ export type UserOrderByInput =
   | "email_ASC"
   | "email_DESC"
   | "senha_ASC"
-  | "senha_DESC";
+  | "senha_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC";
 
 export type MutationType = "CREATED" | "UPDATED" | "DELETED";
 
@@ -271,6 +283,22 @@ export interface ClientWhereInput {
   endereco_ends_with?: Maybe<String>;
   endereco_not_ends_with?: Maybe<String>;
   user?: Maybe<UserWhereInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
   AND?: Maybe<ClientWhereInput[] | ClientWhereInput>;
   OR?: Maybe<ClientWhereInput[] | ClientWhereInput>;
   NOT?: Maybe<ClientWhereInput[] | ClientWhereInput>;
@@ -333,6 +361,22 @@ export interface UserWhereInput {
   senha_not_starts_with?: Maybe<String>;
   senha_ends_with?: Maybe<String>;
   senha_not_ends_with?: Maybe<String>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
   AND?: Maybe<UserWhereInput[] | UserWhereInput>;
   OR?: Maybe<UserWhereInput[] | UserWhereInput>;
   NOT?: Maybe<UserWhereInput[] | UserWhereInput>;
@@ -380,6 +424,22 @@ export interface OrderWhereInput {
   valor_lte?: Maybe<Float>;
   valor_gt?: Maybe<Float>;
   valor_gte?: Maybe<Float>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
   AND?: Maybe<OrderWhereInput[] | OrderWhereInput>;
   OR?: Maybe<OrderWhereInput[] | OrderWhereInput>;
   NOT?: Maybe<OrderWhereInput[] | OrderWhereInput>;
@@ -391,6 +451,7 @@ export type UserWhereUniqueInput = AtLeastOne<{
 }>;
 
 export interface ClientCreateInput {
+  id?: Maybe<ID_Input>;
   nome: String;
   telefone: String;
   endereco: String;
@@ -403,6 +464,7 @@ export interface UserCreateOneInput {
 }
 
 export interface UserCreateInput {
+  id?: Maybe<ID_Input>;
   nome: String;
   email: String;
   senha: String;
@@ -440,6 +502,7 @@ export interface ClientUpdateManyMutationInput {
 }
 
 export interface OrderCreateInput {
+  id?: Maybe<ID_Input>;
   client: ClientCreateOneInput;
   descricao: String;
   valor: Float;
@@ -534,6 +597,8 @@ export interface Client {
   nome: String;
   telefone: String;
   endereco: String;
+  updatedAt: DateTimeOutput;
+  createdAt: DateTimeOutput;
 }
 
 export interface ClientPromise extends Promise<Client>, Fragmentable {
@@ -542,6 +607,8 @@ export interface ClientPromise extends Promise<Client>, Fragmentable {
   telefone: () => Promise<String>;
   endereco: () => Promise<String>;
   user: <T = UserPromise>() => T;
+  updatedAt: () => Promise<DateTimeOutput>;
+  createdAt: () => Promise<DateTimeOutput>;
 }
 
 export interface ClientSubscription
@@ -552,6 +619,8 @@ export interface ClientSubscription
   telefone: () => Promise<AsyncIterator<String>>;
   endereco: () => Promise<AsyncIterator<String>>;
   user: <T = UserSubscription>() => T;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
 export interface ClientNullablePromise
@@ -562,6 +631,8 @@ export interface ClientNullablePromise
   telefone: () => Promise<String>;
   endereco: () => Promise<String>;
   user: <T = UserPromise>() => T;
+  updatedAt: () => Promise<DateTimeOutput>;
+  createdAt: () => Promise<DateTimeOutput>;
 }
 
 export interface User {
@@ -569,6 +640,8 @@ export interface User {
   nome: String;
   email: String;
   senha: String;
+  updatedAt: DateTimeOutput;
+  createdAt: DateTimeOutput;
 }
 
 export interface UserPromise extends Promise<User>, Fragmentable {
@@ -576,6 +649,8 @@ export interface UserPromise extends Promise<User>, Fragmentable {
   nome: () => Promise<String>;
   email: () => Promise<String>;
   senha: () => Promise<String>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  createdAt: () => Promise<DateTimeOutput>;
 }
 
 export interface UserSubscription
@@ -585,6 +660,8 @@ export interface UserSubscription
   nome: () => Promise<AsyncIterator<String>>;
   email: () => Promise<AsyncIterator<String>>;
   senha: () => Promise<AsyncIterator<String>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
 export interface UserNullablePromise
@@ -594,6 +671,8 @@ export interface UserNullablePromise
   nome: () => Promise<String>;
   email: () => Promise<String>;
   senha: () => Promise<String>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  createdAt: () => Promise<DateTimeOutput>;
 }
 
 export interface ClientConnection {
@@ -677,6 +756,8 @@ export interface Order {
   id: ID_Output;
   descricao: String;
   valor: Float;
+  updatedAt: DateTimeOutput;
+  createdAt: DateTimeOutput;
 }
 
 export interface OrderPromise extends Promise<Order>, Fragmentable {
@@ -684,6 +765,8 @@ export interface OrderPromise extends Promise<Order>, Fragmentable {
   client: <T = ClientPromise>() => T;
   descricao: () => Promise<String>;
   valor: () => Promise<Float>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  createdAt: () => Promise<DateTimeOutput>;
 }
 
 export interface OrderSubscription
@@ -693,6 +776,8 @@ export interface OrderSubscription
   client: <T = ClientSubscription>() => T;
   descricao: () => Promise<AsyncIterator<String>>;
   valor: () => Promise<AsyncIterator<Float>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
 export interface OrderNullablePromise
@@ -702,6 +787,8 @@ export interface OrderNullablePromise
   client: <T = ClientPromise>() => T;
   descricao: () => Promise<String>;
   valor: () => Promise<Float>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  createdAt: () => Promise<DateTimeOutput>;
 }
 
 export interface OrderConnection {
@@ -858,6 +945,8 @@ export interface ClientPreviousValues {
   nome: String;
   telefone: String;
   endereco: String;
+  updatedAt: DateTimeOutput;
+  createdAt: DateTimeOutput;
 }
 
 export interface ClientPreviousValuesPromise
@@ -867,6 +956,8 @@ export interface ClientPreviousValuesPromise
   nome: () => Promise<String>;
   telefone: () => Promise<String>;
   endereco: () => Promise<String>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  createdAt: () => Promise<DateTimeOutput>;
 }
 
 export interface ClientPreviousValuesSubscription
@@ -876,6 +967,8 @@ export interface ClientPreviousValuesSubscription
   nome: () => Promise<AsyncIterator<String>>;
   telefone: () => Promise<AsyncIterator<String>>;
   endereco: () => Promise<AsyncIterator<String>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
 export interface OrderSubscriptionPayload {
@@ -907,6 +1000,8 @@ export interface OrderPreviousValues {
   id: ID_Output;
   descricao: String;
   valor: Float;
+  updatedAt: DateTimeOutput;
+  createdAt: DateTimeOutput;
 }
 
 export interface OrderPreviousValuesPromise
@@ -915,6 +1010,8 @@ export interface OrderPreviousValuesPromise
   id: () => Promise<ID_Output>;
   descricao: () => Promise<String>;
   valor: () => Promise<Float>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  createdAt: () => Promise<DateTimeOutput>;
 }
 
 export interface OrderPreviousValuesSubscription
@@ -923,6 +1020,8 @@ export interface OrderPreviousValuesSubscription
   id: () => Promise<AsyncIterator<ID_Output>>;
   descricao: () => Promise<AsyncIterator<String>>;
   valor: () => Promise<AsyncIterator<Float>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
 export interface UserSubscriptionPayload {
@@ -955,6 +1054,8 @@ export interface UserPreviousValues {
   nome: String;
   email: String;
   senha: String;
+  updatedAt: DateTimeOutput;
+  createdAt: DateTimeOutput;
 }
 
 export interface UserPreviousValuesPromise
@@ -964,6 +1065,8 @@ export interface UserPreviousValuesPromise
   nome: () => Promise<String>;
   email: () => Promise<String>;
   senha: () => Promise<String>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  createdAt: () => Promise<DateTimeOutput>;
 }
 
 export interface UserPreviousValuesSubscription
@@ -973,6 +1076,8 @@ export interface UserPreviousValuesSubscription
   nome: () => Promise<AsyncIterator<String>>;
   email: () => Promise<AsyncIterator<String>>;
   senha: () => Promise<AsyncIterator<String>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
 /*
@@ -985,6 +1090,16 @@ export type ID_Output = string;
 The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.
 */
 export type String = string;
+
+/*
+DateTime scalar input type, allowing Date
+*/
+export type DateTimeInput = Date | string;
+
+/*
+DateTime scalar output type, which is always a string
+*/
+export type DateTimeOutput = string;
 
 /*
 The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1.

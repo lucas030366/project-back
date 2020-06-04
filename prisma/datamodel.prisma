@@ -1,21 +1,27 @@
 type User {
-  id: ID! @unique
+  id: ID! @id
   nome: String!
 	email: String! @unique
 	senha: String! 
+  updatedAt: DateTime! @updatedAt
+  createdAt: DateTime! @createdAt
 }
 
 type Client {
-  id: ID! @unique
+  id: ID! @id
   nome: String!
   telefone: String!
   endereco: String!
   user: User!
+  updatedAt: DateTime! @updatedAt
+  createdAt: DateTime! @createdAt
 }
 
 type Order {
-  id: ID! @unique
+  id: ID! @id
   client: Client!
   descricao: String!
   valor: Float!
+  updatedAt: DateTime! @updatedAt
+  createdAt: DateTime! @createdAt
 }
