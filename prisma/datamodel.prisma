@@ -22,6 +22,14 @@ type Order {
   client: Client!
   descricao: String!
   valor: Float!
+  status: Status!
   updatedAt: DateTime! @updatedAt
   createdAt: DateTime! @createdAt
+}
+
+enum Status {
+  AGUARDANDO
+	EXECUTANDO  
+	CONCLUIDO
+  CANCELADO   
 }

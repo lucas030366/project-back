@@ -77,27 +77,50 @@ function updateClient(parent, { clientId, nome, telefone, endereco }, context, i
   }, info)
 }
 
-function createOrder(parent, { clientId, descricao, valor }, context, info) {
-  // const userId = getUserId(context)
-  return context.db.mutation.createOrder({
-    data: {
-      descricao,
-      valor,
-      client: {
-        connect: {
-          id: clientId
-        }    
-      }
-    }
-  }, info)
-
-}
-
 function deleteClient(parent, { clientId }, context, info) {
   return context.db.mutation.deleteClient({
     where: { id: clientId }
   }, info)
 }
+/**********************************************/
+function createOrder(parent, { clientId, descricao, valor, status }, context, info) {
+  // const userId = getUserId(context)
+  return context.db.mutation.createOrder({
+    data: {
+      descricao,
+      valor,
+      status,
+      client: {
+        connect: {
+          id: clientId
+        }
+      }
+    }
+  }, info)
+}
+
+function updateOrder(parent, { orderId, clientId, descricao, valor, status }, context, info) {
+  return context.db.mutation.updateOrder({
+    where: { id: orderId },
+    data: {
+      descricao,
+      valor,
+      status,
+      client: {
+        connect: {
+          id: clientId
+        }
+      }
+    }
+  }, info)
+}
+
+function deleteOrder(parent, { orderId }, context, info) {
+  return context.db.mutation.deleteOrder({
+    where: { id: orderId }
+  }, info)
+}
+
 
 module.exports = {
   signup,
@@ -105,5 +128,7 @@ module.exports = {
   createClient,
   updateClient,
   deleteClient,
-  createOrder
+  createOrder,
+  updateOrder,
+  deleteOrder
 }

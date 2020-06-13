@@ -250,6 +250,7 @@ type Order {
   client: Client!
   descricao: String!
   valor: Float!
+  status: Status!
   updatedAt: DateTime!
   createdAt: DateTime!
 }
@@ -265,6 +266,7 @@ input OrderCreateInput {
   client: ClientCreateOneInput!
   descricao: String!
   valor: Float!
+  status: Status!
 }
 
 type OrderEdge {
@@ -279,6 +281,8 @@ enum OrderOrderByInput {
   descricao_DESC
   valor_ASC
   valor_DESC
+  status_ASC
+  status_DESC
   updatedAt_ASC
   updatedAt_DESC
   createdAt_ASC
@@ -289,6 +293,7 @@ type OrderPreviousValues {
   id: ID!
   descricao: String!
   valor: Float!
+  status: Status!
   updatedAt: DateTime!
   createdAt: DateTime!
 }
@@ -315,11 +320,13 @@ input OrderUpdateInput {
   client: ClientUpdateOneRequiredInput
   descricao: String
   valor: Float
+  status: Status
 }
 
 input OrderUpdateManyMutationInput {
   descricao: String
   valor: Float
+  status: Status
 }
 
 input OrderWhereInput {
@@ -360,6 +367,10 @@ input OrderWhereInput {
   valor_lte: Float
   valor_gt: Float
   valor_gte: Float
+  status: Status
+  status_not: Status
+  status_in: [Status!]
+  status_not_in: [Status!]
   updatedAt: DateTime
   updatedAt_not: DateTime
   updatedAt_in: [DateTime!]
@@ -403,6 +414,13 @@ type Query {
   users(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User]!
   usersConnection(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): UserConnection!
   node(id: ID!): Node
+}
+
+enum Status {
+  AGUARDANDO
+  EXECUTANDO
+  CONCLUIDO
+  CANCELADO
 }
 
 type Subscription {

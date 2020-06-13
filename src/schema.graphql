@@ -24,7 +24,11 @@ type Mutation {
 
   deleteClient(clientId: ID!): Client
 
-  createOrder(clientId: ID!, descricao: String!, valor: Float!): Order!
+  createOrder(clientId: ID!, descricao: String!, valor: Float!, status: Status!): Order!
+
+  updateOrder(orderId:ID!, clientId: ID!, descricao: String!, valor: Float!, status: Status!): Order!
+
+  deleteOrder(orderId: ID!): Order
 
 }
 
@@ -51,5 +55,13 @@ type Order {
   id: ID!
   client: Client!
   descricao: String!
+  status: Status!
   valor: Float!
+}
+
+enum Status {
+  AGUARDANDO
+	EXECUTANDO  
+	CONCLUIDO
+  CANCELADO   
 }

@@ -193,6 +193,8 @@ export type ClientOrderByInput =
   | "createdAt_ASC"
   | "createdAt_DESC";
 
+export type Status = "AGUARDANDO" | "EXECUTANDO" | "CONCLUIDO" | "CANCELADO";
+
 export type OrderOrderByInput =
   | "id_ASC"
   | "id_DESC"
@@ -200,6 +202,8 @@ export type OrderOrderByInput =
   | "descricao_DESC"
   | "valor_ASC"
   | "valor_DESC"
+  | "status_ASC"
+  | "status_DESC"
   | "updatedAt_ASC"
   | "updatedAt_DESC"
   | "createdAt_ASC"
@@ -424,6 +428,10 @@ export interface OrderWhereInput {
   valor_lte?: Maybe<Float>;
   valor_gt?: Maybe<Float>;
   valor_gte?: Maybe<Float>;
+  status?: Maybe<Status>;
+  status_not?: Maybe<Status>;
+  status_in?: Maybe<Status[] | Status>;
+  status_not_in?: Maybe<Status[] | Status>;
   updatedAt?: Maybe<DateTimeInput>;
   updatedAt_not?: Maybe<DateTimeInput>;
   updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
@@ -506,6 +514,7 @@ export interface OrderCreateInput {
   client: ClientCreateOneInput;
   descricao: String;
   valor: Float;
+  status: Status;
 }
 
 export interface ClientCreateOneInput {
@@ -517,6 +526,7 @@ export interface OrderUpdateInput {
   client?: Maybe<ClientUpdateOneRequiredInput>;
   descricao?: Maybe<String>;
   valor?: Maybe<Float>;
+  status?: Maybe<Status>;
 }
 
 export interface ClientUpdateOneRequiredInput {
@@ -541,6 +551,7 @@ export interface ClientUpsertNestedInput {
 export interface OrderUpdateManyMutationInput {
   descricao?: Maybe<String>;
   valor?: Maybe<Float>;
+  status?: Maybe<Status>;
 }
 
 export interface UserUpdateInput {
@@ -756,6 +767,7 @@ export interface Order {
   id: ID_Output;
   descricao: String;
   valor: Float;
+  status: Status;
   updatedAt: DateTimeOutput;
   createdAt: DateTimeOutput;
 }
@@ -765,6 +777,7 @@ export interface OrderPromise extends Promise<Order>, Fragmentable {
   client: <T = ClientPromise>() => T;
   descricao: () => Promise<String>;
   valor: () => Promise<Float>;
+  status: () => Promise<Status>;
   updatedAt: () => Promise<DateTimeOutput>;
   createdAt: () => Promise<DateTimeOutput>;
 }
@@ -776,6 +789,7 @@ export interface OrderSubscription
   client: <T = ClientSubscription>() => T;
   descricao: () => Promise<AsyncIterator<String>>;
   valor: () => Promise<AsyncIterator<Float>>;
+  status: () => Promise<AsyncIterator<Status>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
@@ -787,6 +801,7 @@ export interface OrderNullablePromise
   client: <T = ClientPromise>() => T;
   descricao: () => Promise<String>;
   valor: () => Promise<Float>;
+  status: () => Promise<Status>;
   updatedAt: () => Promise<DateTimeOutput>;
   createdAt: () => Promise<DateTimeOutput>;
 }
@@ -1000,6 +1015,7 @@ export interface OrderPreviousValues {
   id: ID_Output;
   descricao: String;
   valor: Float;
+  status: Status;
   updatedAt: DateTimeOutput;
   createdAt: DateTimeOutput;
 }
@@ -1010,6 +1026,7 @@ export interface OrderPreviousValuesPromise
   id: () => Promise<ID_Output>;
   descricao: () => Promise<String>;
   valor: () => Promise<Float>;
+  status: () => Promise<Status>;
   updatedAt: () => Promise<DateTimeOutput>;
   createdAt: () => Promise<DateTimeOutput>;
 }
@@ -1020,6 +1037,7 @@ export interface OrderPreviousValuesSubscription
   id: () => Promise<AsyncIterator<ID_Output>>;
   descricao: () => Promise<AsyncIterator<String>>;
   valor: () => Promise<AsyncIterator<Float>>;
+  status: () => Promise<AsyncIterator<Status>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
@@ -1133,6 +1151,10 @@ export const models: Model[] = [
   },
   {
     name: "Order",
+    embedded: false
+  },
+  {
+    name: "Status",
     embedded: false
   }
 ];
