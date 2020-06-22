@@ -19,7 +19,19 @@ https://docs.docker.com/engine/install/ubuntu/
 ```
 docker-compose up
 ```
+
+### Sincronizar Dados/Tabelas
+```
+prisma deploy
+```
+
 ### Parar Docker
 ```
 docker-compose down
+```
+
+### criar user admin
+```
+-> localhost:4000
+-> mutation signup
 ```
