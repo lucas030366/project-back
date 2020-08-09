@@ -44,13 +44,19 @@ async function login(parent, { email, senha }, context, info) {
   }
 }
 
-function createClient(parent, { nome, telefone, endereco }, context, info) {
+function createClient(parent, { nome, telefone, endereco, cep, complemento, numero, status_cli, status_ord, status_pay }, context, info) {
   const userId = getUserId(context)
   return context.db.mutation.createClient({
     data: {
       nome,
       telefone,
       endereco,
+      cep,
+      complemento,
+      numero,
+      status_cli,
+      status_ord,
+      status_pay,
       user: {
         connect: {
           id: userId
@@ -60,7 +66,7 @@ function createClient(parent, { nome, telefone, endereco }, context, info) {
   }, info)
 }
 
-function updateClient(parent, { clientId, nome, telefone, endereco }, context, info) {
+function updateClient(parent, { clientId, nome, telefone, endereco, cep, complemento, numero, status_cli, status_ord, status_pay, }, context, info) {  
   const userId = getUserId(context)
   return context.db.mutation.updateClient({
     where: { id: clientId },
@@ -68,6 +74,12 @@ function updateClient(parent, { clientId, nome, telefone, endereco }, context, i
       nome,
       telefone,
       endereco,
+      cep,
+      complemento,
+      numero,
+      status_cli,
+      status_ord,
+      status_pay,
       user: {
         connect: {
           id: userId

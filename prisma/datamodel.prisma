@@ -11,7 +11,13 @@ type Client {
   id: ID! @id
   nome: String!
   telefone: String!
-  endereco: String!
+  endereco: String
+  cep: String,
+  complemento: String,
+  numero: Float,
+  status_cli: Boolean,
+  status_ord: Boolean,
+  status_pay: Boolean,
   user: User!
   updatedAt: DateTime! @updatedAt
   createdAt: DateTime! @createdAt

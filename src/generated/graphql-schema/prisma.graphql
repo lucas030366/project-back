@@ -18,7 +18,13 @@ type Client {
   id: ID!
   nome: String!
   telefone: String!
-  endereco: String!
+  endereco: String
+  cep: String
+  complemento: String
+  numero: Float
+  status_cli: Boolean
+  status_ord: Boolean
+  status_pay: Boolean
   user: User!
   updatedAt: DateTime!
   createdAt: DateTime!
@@ -34,7 +40,13 @@ input ClientCreateInput {
   id: ID
   nome: String!
   telefone: String!
-  endereco: String!
+  endereco: String
+  cep: String
+  complemento: String
+  numero: Float
+  status_cli: Boolean
+  status_ord: Boolean
+  status_pay: Boolean
   user: UserCreateOneInput!
 }
 
@@ -57,6 +69,18 @@ enum ClientOrderByInput {
   telefone_DESC
   endereco_ASC
   endereco_DESC
+  cep_ASC
+  cep_DESC
+  complemento_ASC
+  complemento_DESC
+  numero_ASC
+  numero_DESC
+  status_cli_ASC
+  status_cli_DESC
+  status_ord_ASC
+  status_ord_DESC
+  status_pay_ASC
+  status_pay_DESC
   updatedAt_ASC
   updatedAt_DESC
   createdAt_ASC
@@ -67,7 +91,13 @@ type ClientPreviousValues {
   id: ID!
   nome: String!
   telefone: String!
-  endereco: String!
+  endereco: String
+  cep: String
+  complemento: String
+  numero: Float
+  status_cli: Boolean
+  status_ord: Boolean
+  status_pay: Boolean
   updatedAt: DateTime!
   createdAt: DateTime!
 }
@@ -94,6 +124,12 @@ input ClientUpdateDataInput {
   nome: String
   telefone: String
   endereco: String
+  cep: String
+  complemento: String
+  numero: Float
+  status_cli: Boolean
+  status_ord: Boolean
+  status_pay: Boolean
   user: UserUpdateOneRequiredInput
 }
 
@@ -101,6 +137,12 @@ input ClientUpdateInput {
   nome: String
   telefone: String
   endereco: String
+  cep: String
+  complemento: String
+  numero: Float
+  status_cli: Boolean
+  status_ord: Boolean
+  status_pay: Boolean
   user: UserUpdateOneRequiredInput
 }
 
@@ -108,6 +150,12 @@ input ClientUpdateManyMutationInput {
   nome: String
   telefone: String
   endereco: String
+  cep: String
+  complemento: String
+  numero: Float
+  status_cli: Boolean
+  status_ord: Boolean
+  status_pay: Boolean
 }
 
 input ClientUpdateOneRequiredInput {
@@ -179,6 +227,48 @@ input ClientWhereInput {
   endereco_not_starts_with: String
   endereco_ends_with: String
   endereco_not_ends_with: String
+  cep: String
+  cep_not: String
+  cep_in: [String!]
+  cep_not_in: [String!]
+  cep_lt: String
+  cep_lte: String
+  cep_gt: String
+  cep_gte: String
+  cep_contains: String
+  cep_not_contains: String
+  cep_starts_with: String
+  cep_not_starts_with: String
+  cep_ends_with: String
+  cep_not_ends_with: String
+  complemento: String
+  complemento_not: String
+  complemento_in: [String!]
+  complemento_not_in: [String!]
+  complemento_lt: String
+  complemento_lte: String
+  complemento_gt: String
+  complemento_gte: String
+  complemento_contains: String
+  complemento_not_contains: String
+  complemento_starts_with: String
+  complemento_not_starts_with: String
+  complemento_ends_with: String
+  complemento_not_ends_with: String
+  numero: Float
+  numero_not: Float
+  numero_in: [Float!]
+  numero_not_in: [Float!]
+  numero_lt: Float
+  numero_lte: Float
+  numero_gt: Float
+  numero_gte: Float
+  status_cli: Boolean
+  status_cli_not: Boolean
+  status_ord: Boolean
+  status_ord_not: Boolean
+  status_pay: Boolean
+  status_pay_not: Boolean
   user: UserWhereInput
   updatedAt: DateTime
   updatedAt_not: DateTime

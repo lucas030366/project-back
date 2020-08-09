@@ -188,6 +188,18 @@ export type ClientOrderByInput =
   | "telefone_DESC"
   | "endereco_ASC"
   | "endereco_DESC"
+  | "cep_ASC"
+  | "cep_DESC"
+  | "complemento_ASC"
+  | "complemento_DESC"
+  | "numero_ASC"
+  | "numero_DESC"
+  | "status_cli_ASC"
+  | "status_cli_DESC"
+  | "status_ord_ASC"
+  | "status_ord_DESC"
+  | "status_pay_ASC"
+  | "status_pay_DESC"
   | "updatedAt_ASC"
   | "updatedAt_DESC"
   | "createdAt_ASC"
@@ -225,12 +237,9 @@ export type UserOrderByInput =
   | "createdAt_ASC"
   | "createdAt_DESC";
 
-export interface OrderUpdateInput {
-  client?: Maybe<ClientUpdateOneRequiredInput>;
-  descricao?: Maybe<String>;
-  valor?: Maybe<Float>;
-  status?: Maybe<Status>;
-}
+export type OrderWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
 
 export interface UserCreateOneInput {
   create?: Maybe<UserCreateInput>;
@@ -258,6 +267,201 @@ export interface OrderCreateInput {
   descricao: String;
   valor: Float;
   status: Status;
+}
+
+export interface ClientWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  nome?: Maybe<String>;
+  nome_not?: Maybe<String>;
+  nome_in?: Maybe<String[] | String>;
+  nome_not_in?: Maybe<String[] | String>;
+  nome_lt?: Maybe<String>;
+  nome_lte?: Maybe<String>;
+  nome_gt?: Maybe<String>;
+  nome_gte?: Maybe<String>;
+  nome_contains?: Maybe<String>;
+  nome_not_contains?: Maybe<String>;
+  nome_starts_with?: Maybe<String>;
+  nome_not_starts_with?: Maybe<String>;
+  nome_ends_with?: Maybe<String>;
+  nome_not_ends_with?: Maybe<String>;
+  telefone?: Maybe<String>;
+  telefone_not?: Maybe<String>;
+  telefone_in?: Maybe<String[] | String>;
+  telefone_not_in?: Maybe<String[] | String>;
+  telefone_lt?: Maybe<String>;
+  telefone_lte?: Maybe<String>;
+  telefone_gt?: Maybe<String>;
+  telefone_gte?: Maybe<String>;
+  telefone_contains?: Maybe<String>;
+  telefone_not_contains?: Maybe<String>;
+  telefone_starts_with?: Maybe<String>;
+  telefone_not_starts_with?: Maybe<String>;
+  telefone_ends_with?: Maybe<String>;
+  telefone_not_ends_with?: Maybe<String>;
+  endereco?: Maybe<String>;
+  endereco_not?: Maybe<String>;
+  endereco_in?: Maybe<String[] | String>;
+  endereco_not_in?: Maybe<String[] | String>;
+  endereco_lt?: Maybe<String>;
+  endereco_lte?: Maybe<String>;
+  endereco_gt?: Maybe<String>;
+  endereco_gte?: Maybe<String>;
+  endereco_contains?: Maybe<String>;
+  endereco_not_contains?: Maybe<String>;
+  endereco_starts_with?: Maybe<String>;
+  endereco_not_starts_with?: Maybe<String>;
+  endereco_ends_with?: Maybe<String>;
+  endereco_not_ends_with?: Maybe<String>;
+  cep?: Maybe<String>;
+  cep_not?: Maybe<String>;
+  cep_in?: Maybe<String[] | String>;
+  cep_not_in?: Maybe<String[] | String>;
+  cep_lt?: Maybe<String>;
+  cep_lte?: Maybe<String>;
+  cep_gt?: Maybe<String>;
+  cep_gte?: Maybe<String>;
+  cep_contains?: Maybe<String>;
+  cep_not_contains?: Maybe<String>;
+  cep_starts_with?: Maybe<String>;
+  cep_not_starts_with?: Maybe<String>;
+  cep_ends_with?: Maybe<String>;
+  cep_not_ends_with?: Maybe<String>;
+  complemento?: Maybe<String>;
+  complemento_not?: Maybe<String>;
+  complemento_in?: Maybe<String[] | String>;
+  complemento_not_in?: Maybe<String[] | String>;
+  complemento_lt?: Maybe<String>;
+  complemento_lte?: Maybe<String>;
+  complemento_gt?: Maybe<String>;
+  complemento_gte?: Maybe<String>;
+  complemento_contains?: Maybe<String>;
+  complemento_not_contains?: Maybe<String>;
+  complemento_starts_with?: Maybe<String>;
+  complemento_not_starts_with?: Maybe<String>;
+  complemento_ends_with?: Maybe<String>;
+  complemento_not_ends_with?: Maybe<String>;
+  numero?: Maybe<Float>;
+  numero_not?: Maybe<Float>;
+  numero_in?: Maybe<Float[] | Float>;
+  numero_not_in?: Maybe<Float[] | Float>;
+  numero_lt?: Maybe<Float>;
+  numero_lte?: Maybe<Float>;
+  numero_gt?: Maybe<Float>;
+  numero_gte?: Maybe<Float>;
+  status_cli?: Maybe<Boolean>;
+  status_cli_not?: Maybe<Boolean>;
+  status_ord?: Maybe<Boolean>;
+  status_ord_not?: Maybe<Boolean>;
+  status_pay?: Maybe<Boolean>;
+  status_pay_not?: Maybe<Boolean>;
+  user?: Maybe<UserWhereInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  AND?: Maybe<ClientWhereInput[] | ClientWhereInput>;
+  OR?: Maybe<ClientWhereInput[] | ClientWhereInput>;
+  NOT?: Maybe<ClientWhereInput[] | ClientWhereInput>;
+}
+
+export interface ClientUpdateManyMutationInput {
+  nome?: Maybe<String>;
+  telefone?: Maybe<String>;
+  endereco?: Maybe<String>;
+  cep?: Maybe<String>;
+  complemento?: Maybe<String>;
+  numero?: Maybe<Float>;
+  status_cli?: Maybe<Boolean>;
+  status_ord?: Maybe<Boolean>;
+  status_pay?: Maybe<Boolean>;
+}
+
+export interface UserUpdateInput {
+  nome?: Maybe<String>;
+  email?: Maybe<String>;
+  senha?: Maybe<String>;
+}
+
+export interface UserUpsertNestedInput {
+  update: UserUpdateDataInput;
+  create: UserCreateInput;
+}
+
+export interface ClientUpsertNestedInput {
+  update: ClientUpdateDataInput;
+  create: ClientCreateInput;
+}
+
+export type UserWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+  email?: Maybe<String>;
+}>;
+
+export interface ClientUpdateOneRequiredInput {
+  create?: Maybe<ClientCreateInput>;
+  update?: Maybe<ClientUpdateDataInput>;
+  upsert?: Maybe<ClientUpsertNestedInput>;
+  connect?: Maybe<ClientWhereUniqueInput>;
+}
+
+export interface OrderSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<OrderWhereInput>;
+  AND?: Maybe<OrderSubscriptionWhereInput[] | OrderSubscriptionWhereInput>;
+  OR?: Maybe<OrderSubscriptionWhereInput[] | OrderSubscriptionWhereInput>;
+  NOT?: Maybe<OrderSubscriptionWhereInput[] | OrderSubscriptionWhereInput>;
+}
+
+export interface UserSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<UserWhereInput>;
+  AND?: Maybe<UserSubscriptionWhereInput[] | UserSubscriptionWhereInput>;
+  OR?: Maybe<UserSubscriptionWhereInput[] | UserSubscriptionWhereInput>;
+  NOT?: Maybe<UserSubscriptionWhereInput[] | UserSubscriptionWhereInput>;
+}
+
+export interface UserUpdateDataInput {
+  nome?: Maybe<String>;
+  email?: Maybe<String>;
+  senha?: Maybe<String>;
+}
+
+export interface UserUpdateManyMutationInput {
+  nome?: Maybe<String>;
+  email?: Maybe<String>;
+  senha?: Maybe<String>;
 }
 
 export interface UserWhereInput {
@@ -338,158 +542,17 @@ export interface UserWhereInput {
   NOT?: Maybe<UserWhereInput[] | UserWhereInput>;
 }
 
-export interface ClientUpdateManyMutationInput {
-  nome?: Maybe<String>;
-  telefone?: Maybe<String>;
-  endereco?: Maybe<String>;
-}
-
-export interface UserUpdateInput {
-  nome?: Maybe<String>;
-  email?: Maybe<String>;
-  senha?: Maybe<String>;
-}
-
-export interface UserUpsertNestedInput {
-  update: UserUpdateDataInput;
-  create: UserCreateInput;
-}
-
-export interface ClientUpsertNestedInput {
-  update: ClientUpdateDataInput;
-  create: ClientCreateInput;
-}
-
-export type UserWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-  email?: Maybe<String>;
-}>;
-
-export interface ClientUpdateOneRequiredInput {
-  create?: Maybe<ClientCreateInput>;
-  update?: Maybe<ClientUpdateDataInput>;
-  upsert?: Maybe<ClientUpsertNestedInput>;
-  connect?: Maybe<ClientWhereUniqueInput>;
-}
-
-export interface OrderSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<OrderWhereInput>;
-  AND?: Maybe<OrderSubscriptionWhereInput[] | OrderSubscriptionWhereInput>;
-  OR?: Maybe<OrderSubscriptionWhereInput[] | OrderSubscriptionWhereInput>;
-  NOT?: Maybe<OrderSubscriptionWhereInput[] | OrderSubscriptionWhereInput>;
-}
-
-export interface UserSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<UserWhereInput>;
-  AND?: Maybe<UserSubscriptionWhereInput[] | UserSubscriptionWhereInput>;
-  OR?: Maybe<UserSubscriptionWhereInput[] | UserSubscriptionWhereInput>;
-  NOT?: Maybe<UserSubscriptionWhereInput[] | UserSubscriptionWhereInput>;
-}
-
-export interface UserUpdateDataInput {
-  nome?: Maybe<String>;
-  email?: Maybe<String>;
-  senha?: Maybe<String>;
-}
-
-export interface ClientWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  nome?: Maybe<String>;
-  nome_not?: Maybe<String>;
-  nome_in?: Maybe<String[] | String>;
-  nome_not_in?: Maybe<String[] | String>;
-  nome_lt?: Maybe<String>;
-  nome_lte?: Maybe<String>;
-  nome_gt?: Maybe<String>;
-  nome_gte?: Maybe<String>;
-  nome_contains?: Maybe<String>;
-  nome_not_contains?: Maybe<String>;
-  nome_starts_with?: Maybe<String>;
-  nome_not_starts_with?: Maybe<String>;
-  nome_ends_with?: Maybe<String>;
-  nome_not_ends_with?: Maybe<String>;
-  telefone?: Maybe<String>;
-  telefone_not?: Maybe<String>;
-  telefone_in?: Maybe<String[] | String>;
-  telefone_not_in?: Maybe<String[] | String>;
-  telefone_lt?: Maybe<String>;
-  telefone_lte?: Maybe<String>;
-  telefone_gt?: Maybe<String>;
-  telefone_gte?: Maybe<String>;
-  telefone_contains?: Maybe<String>;
-  telefone_not_contains?: Maybe<String>;
-  telefone_starts_with?: Maybe<String>;
-  telefone_not_starts_with?: Maybe<String>;
-  telefone_ends_with?: Maybe<String>;
-  telefone_not_ends_with?: Maybe<String>;
-  endereco?: Maybe<String>;
-  endereco_not?: Maybe<String>;
-  endereco_in?: Maybe<String[] | String>;
-  endereco_not_in?: Maybe<String[] | String>;
-  endereco_lt?: Maybe<String>;
-  endereco_lte?: Maybe<String>;
-  endereco_gt?: Maybe<String>;
-  endereco_gte?: Maybe<String>;
-  endereco_contains?: Maybe<String>;
-  endereco_not_contains?: Maybe<String>;
-  endereco_starts_with?: Maybe<String>;
-  endereco_not_starts_with?: Maybe<String>;
-  endereco_ends_with?: Maybe<String>;
-  endereco_not_ends_with?: Maybe<String>;
-  user?: Maybe<UserWhereInput>;
-  updatedAt?: Maybe<DateTimeInput>;
-  updatedAt_not?: Maybe<DateTimeInput>;
-  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_lt?: Maybe<DateTimeInput>;
-  updatedAt_lte?: Maybe<DateTimeInput>;
-  updatedAt_gt?: Maybe<DateTimeInput>;
-  updatedAt_gte?: Maybe<DateTimeInput>;
-  createdAt?: Maybe<DateTimeInput>;
-  createdAt_not?: Maybe<DateTimeInput>;
-  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_lt?: Maybe<DateTimeInput>;
-  createdAt_lte?: Maybe<DateTimeInput>;
-  createdAt_gt?: Maybe<DateTimeInput>;
-  createdAt_gte?: Maybe<DateTimeInput>;
-  AND?: Maybe<ClientWhereInput[] | ClientWhereInput>;
-  OR?: Maybe<ClientWhereInput[] | ClientWhereInput>;
-  NOT?: Maybe<ClientWhereInput[] | ClientWhereInput>;
-}
-
-export interface UserUpdateManyMutationInput {
-  nome?: Maybe<String>;
-  email?: Maybe<String>;
-  senha?: Maybe<String>;
-}
-
 export interface ClientCreateInput {
   id?: Maybe<ID_Input>;
   nome: String;
   telefone: String;
-  endereco: String;
+  endereco?: Maybe<String>;
+  cep?: Maybe<String>;
+  complemento?: Maybe<String>;
+  numero?: Maybe<Float>;
+  status_cli?: Maybe<Boolean>;
+  status_ord?: Maybe<Boolean>;
+  status_pay?: Maybe<Boolean>;
   user: UserCreateOneInput;
 }
 
@@ -504,6 +567,12 @@ export interface ClientUpdateInput {
   nome?: Maybe<String>;
   telefone?: Maybe<String>;
   endereco?: Maybe<String>;
+  cep?: Maybe<String>;
+  complemento?: Maybe<String>;
+  numero?: Maybe<Float>;
+  status_cli?: Maybe<Boolean>;
+  status_ord?: Maybe<Boolean>;
+  status_pay?: Maybe<Boolean>;
   user?: Maybe<UserUpdateOneRequiredInput>;
 }
 
@@ -588,14 +657,23 @@ export interface ClientCreateOneInput {
   connect?: Maybe<ClientWhereUniqueInput>;
 }
 
-export type OrderWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
+export interface OrderUpdateInput {
+  client?: Maybe<ClientUpdateOneRequiredInput>;
+  descricao?: Maybe<String>;
+  valor?: Maybe<Float>;
+  status?: Maybe<Status>;
+}
 
 export interface ClientUpdateDataInput {
   nome?: Maybe<String>;
   telefone?: Maybe<String>;
   endereco?: Maybe<String>;
+  cep?: Maybe<String>;
+  complemento?: Maybe<String>;
+  numero?: Maybe<Float>;
+  status_cli?: Maybe<Boolean>;
+  status_ord?: Maybe<Boolean>;
+  status_pay?: Maybe<Boolean>;
   user?: Maybe<UserUpdateOneRequiredInput>;
 }
 
@@ -603,68 +681,25 @@ export interface NodeNode {
   id: ID_Output;
 }
 
-export interface AggregateClient {
-  count: Int;
+export interface ClientConnection {
+  pageInfo: PageInfo;
+  edges: ClientEdge[];
 }
 
-export interface AggregateClientPromise
-  extends Promise<AggregateClient>,
+export interface ClientConnectionPromise
+  extends Promise<ClientConnection>,
     Fragmentable {
-  count: () => Promise<Int>;
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<ClientEdge>>() => T;
+  aggregate: <T = AggregateClientPromise>() => T;
 }
 
-export interface AggregateClientSubscription
-  extends Promise<AsyncIterator<AggregateClient>>,
+export interface ClientConnectionSubscription
+  extends Promise<AsyncIterator<ClientConnection>>,
     Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface ClientPreviousValues {
-  id: ID_Output;
-  nome: String;
-  telefone: String;
-  endereco: String;
-  updatedAt: DateTimeOutput;
-  createdAt: DateTimeOutput;
-}
-
-export interface ClientPreviousValuesPromise
-  extends Promise<ClientPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  nome: () => Promise<String>;
-  telefone: () => Promise<String>;
-  endereco: () => Promise<String>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  createdAt: () => Promise<DateTimeOutput>;
-}
-
-export interface ClientPreviousValuesSubscription
-  extends Promise<AsyncIterator<ClientPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  nome: () => Promise<AsyncIterator<String>>;
-  telefone: () => Promise<AsyncIterator<String>>;
-  endereco: () => Promise<AsyncIterator<String>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-}
-
-export interface ClientEdge {
-  node: Client;
-  cursor: String;
-}
-
-export interface ClientEdgePromise extends Promise<ClientEdge>, Fragmentable {
-  node: <T = ClientPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface ClientEdgeSubscription
-  extends Promise<AsyncIterator<ClientEdge>>,
-    Fragmentable {
-  node: <T = ClientSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<ClientEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateClientSubscription>() => T;
 }
 
 export interface UserPreviousValues {
@@ -698,43 +733,6 @@ export interface UserPreviousValuesSubscription
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
-export interface AggregateUser {
-  count: Int;
-}
-
-export interface AggregateUserPromise
-  extends Promise<AggregateUser>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateUserSubscription
-  extends Promise<AsyncIterator<AggregateUser>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface UserConnection {
-  pageInfo: PageInfo;
-  edges: UserEdge[];
-}
-
-export interface UserConnectionPromise
-  extends Promise<UserConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<UserEdge>>() => T;
-  aggregate: <T = AggregateUserPromise>() => T;
-}
-
-export interface UserConnectionSubscription
-  extends Promise<AsyncIterator<UserConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<UserEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateUserSubscription>() => T;
-}
-
 export interface PageInfo {
   hasNextPage: Boolean;
   hasPreviousPage: Boolean;
@@ -758,6 +756,109 @@ export interface PageInfoSubscription
   endCursor: () => Promise<AsyncIterator<String>>;
 }
 
+export interface ClientPreviousValues {
+  id: ID_Output;
+  nome: String;
+  telefone: String;
+  endereco?: String;
+  cep?: String;
+  complemento?: String;
+  numero?: Float;
+  status_cli?: Boolean;
+  status_ord?: Boolean;
+  status_pay?: Boolean;
+  updatedAt: DateTimeOutput;
+  createdAt: DateTimeOutput;
+}
+
+export interface ClientPreviousValuesPromise
+  extends Promise<ClientPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  nome: () => Promise<String>;
+  telefone: () => Promise<String>;
+  endereco: () => Promise<String>;
+  cep: () => Promise<String>;
+  complemento: () => Promise<String>;
+  numero: () => Promise<Float>;
+  status_cli: () => Promise<Boolean>;
+  status_ord: () => Promise<Boolean>;
+  status_pay: () => Promise<Boolean>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  createdAt: () => Promise<DateTimeOutput>;
+}
+
+export interface ClientPreviousValuesSubscription
+  extends Promise<AsyncIterator<ClientPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  nome: () => Promise<AsyncIterator<String>>;
+  telefone: () => Promise<AsyncIterator<String>>;
+  endereco: () => Promise<AsyncIterator<String>>;
+  cep: () => Promise<AsyncIterator<String>>;
+  complemento: () => Promise<AsyncIterator<String>>;
+  numero: () => Promise<AsyncIterator<Float>>;
+  status_cli: () => Promise<AsyncIterator<Boolean>>;
+  status_ord: () => Promise<AsyncIterator<Boolean>>;
+  status_pay: () => Promise<AsyncIterator<Boolean>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface AggregateUser {
+  count: Int;
+}
+
+export interface AggregateUserPromise
+  extends Promise<AggregateUser>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateUserSubscription
+  extends Promise<AsyncIterator<AggregateUser>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface UserEdge {
+  node: User;
+  cursor: String;
+}
+
+export interface UserEdgePromise extends Promise<UserEdge>, Fragmentable {
+  node: <T = UserPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface UserEdgeSubscription
+  extends Promise<AsyncIterator<UserEdge>>,
+    Fragmentable {
+  node: <T = UserSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface UserConnection {
+  pageInfo: PageInfo;
+  edges: UserEdge[];
+}
+
+export interface UserConnectionPromise
+  extends Promise<UserConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<UserEdge>>() => T;
+  aggregate: <T = AggregateUserPromise>() => T;
+}
+
+export interface UserConnectionSubscription
+  extends Promise<AsyncIterator<UserConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<UserEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateUserSubscription>() => T;
+}
+
 export interface OrderEdge {
   node: Order;
   cursor: String;
@@ -775,25 +876,71 @@ export interface OrderEdgeSubscription
   cursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface ClientConnection {
-  pageInfo: PageInfo;
-  edges: ClientEdge[];
+export interface Client {
+  id: ID_Output;
+  nome: String;
+  telefone: String;
+  endereco?: String;
+  cep?: String;
+  complemento?: String;
+  numero?: Float;
+  status_cli?: Boolean;
+  status_ord?: Boolean;
+  status_pay?: Boolean;
+  updatedAt: DateTimeOutput;
+  createdAt: DateTimeOutput;
 }
 
-export interface ClientConnectionPromise
-  extends Promise<ClientConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<ClientEdge>>() => T;
-  aggregate: <T = AggregateClientPromise>() => T;
+export interface ClientPromise extends Promise<Client>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  nome: () => Promise<String>;
+  telefone: () => Promise<String>;
+  endereco: () => Promise<String>;
+  cep: () => Promise<String>;
+  complemento: () => Promise<String>;
+  numero: () => Promise<Float>;
+  status_cli: () => Promise<Boolean>;
+  status_ord: () => Promise<Boolean>;
+  status_pay: () => Promise<Boolean>;
+  user: <T = UserPromise>() => T;
+  updatedAt: () => Promise<DateTimeOutput>;
+  createdAt: () => Promise<DateTimeOutput>;
 }
 
-export interface ClientConnectionSubscription
-  extends Promise<AsyncIterator<ClientConnection>>,
+export interface ClientSubscription
+  extends Promise<AsyncIterator<Client>>,
     Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<ClientEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateClientSubscription>() => T;
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  nome: () => Promise<AsyncIterator<String>>;
+  telefone: () => Promise<AsyncIterator<String>>;
+  endereco: () => Promise<AsyncIterator<String>>;
+  cep: () => Promise<AsyncIterator<String>>;
+  complemento: () => Promise<AsyncIterator<String>>;
+  numero: () => Promise<AsyncIterator<Float>>;
+  status_cli: () => Promise<AsyncIterator<Boolean>>;
+  status_ord: () => Promise<AsyncIterator<Boolean>>;
+  status_pay: () => Promise<AsyncIterator<Boolean>>;
+  user: <T = UserSubscription>() => T;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface ClientNullablePromise
+  extends Promise<Client | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  nome: () => Promise<String>;
+  telefone: () => Promise<String>;
+  endereco: () => Promise<String>;
+  cep: () => Promise<String>;
+  complemento: () => Promise<String>;
+  numero: () => Promise<Float>;
+  status_cli: () => Promise<Boolean>;
+  status_ord: () => Promise<Boolean>;
+  status_pay: () => Promise<Boolean>;
+  user: <T = UserPromise>() => T;
+  updatedAt: () => Promise<DateTimeOutput>;
+  createdAt: () => Promise<DateTimeOutput>;
 }
 
 export interface UserSubscriptionPayload {
@@ -821,45 +968,45 @@ export interface UserSubscriptionPayloadSubscription
   previousValues: <T = UserPreviousValuesSubscription>() => T;
 }
 
-export interface Client {
+export interface Order {
   id: ID_Output;
-  nome: String;
-  telefone: String;
-  endereco: String;
+  descricao: String;
+  valor: Float;
+  status: Status;
   updatedAt: DateTimeOutput;
   createdAt: DateTimeOutput;
 }
 
-export interface ClientPromise extends Promise<Client>, Fragmentable {
+export interface OrderPromise extends Promise<Order>, Fragmentable {
   id: () => Promise<ID_Output>;
-  nome: () => Promise<String>;
-  telefone: () => Promise<String>;
-  endereco: () => Promise<String>;
-  user: <T = UserPromise>() => T;
+  client: <T = ClientPromise>() => T;
+  descricao: () => Promise<String>;
+  valor: () => Promise<Float>;
+  status: () => Promise<Status>;
   updatedAt: () => Promise<DateTimeOutput>;
   createdAt: () => Promise<DateTimeOutput>;
 }
 
-export interface ClientSubscription
-  extends Promise<AsyncIterator<Client>>,
+export interface OrderSubscription
+  extends Promise<AsyncIterator<Order>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  nome: () => Promise<AsyncIterator<String>>;
-  telefone: () => Promise<AsyncIterator<String>>;
-  endereco: () => Promise<AsyncIterator<String>>;
-  user: <T = UserSubscription>() => T;
+  client: <T = ClientSubscription>() => T;
+  descricao: () => Promise<AsyncIterator<String>>;
+  valor: () => Promise<AsyncIterator<Float>>;
+  status: () => Promise<AsyncIterator<Status>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
-export interface ClientNullablePromise
-  extends Promise<Client | null>,
+export interface OrderNullablePromise
+  extends Promise<Order | null>,
     Fragmentable {
   id: () => Promise<ID_Output>;
-  nome: () => Promise<String>;
-  telefone: () => Promise<String>;
-  endereco: () => Promise<String>;
-  user: <T = UserPromise>() => T;
+  client: <T = ClientPromise>() => T;
+  descricao: () => Promise<String>;
+  valor: () => Promise<Float>;
+  status: () => Promise<Status>;
   updatedAt: () => Promise<DateTimeOutput>;
   createdAt: () => Promise<DateTimeOutput>;
 }
@@ -887,46 +1034,6 @@ export interface ClientSubscriptionPayloadSubscription
   node: <T = ClientSubscription>() => T;
   updatedFields: () => Promise<AsyncIterator<String[]>>;
   previousValues: <T = ClientPreviousValuesSubscription>() => T;
-}
-
-export interface User {
-  id: ID_Output;
-  nome: String;
-  email: String;
-  senha: String;
-  updatedAt: DateTimeOutput;
-  createdAt: DateTimeOutput;
-}
-
-export interface UserPromise extends Promise<User>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  nome: () => Promise<String>;
-  email: () => Promise<String>;
-  senha: () => Promise<String>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  createdAt: () => Promise<DateTimeOutput>;
-}
-
-export interface UserSubscription
-  extends Promise<AsyncIterator<User>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  nome: () => Promise<AsyncIterator<String>>;
-  email: () => Promise<AsyncIterator<String>>;
-  senha: () => Promise<AsyncIterator<String>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-}
-
-export interface UserNullablePromise
-  extends Promise<User | null>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  nome: () => Promise<String>;
-  email: () => Promise<String>;
-  senha: () => Promise<String>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  createdAt: () => Promise<DateTimeOutput>;
 }
 
 export interface OrderSubscriptionPayload {
@@ -985,47 +1092,60 @@ export interface OrderPreviousValuesSubscription
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
-export interface Order {
+export interface User {
   id: ID_Output;
-  descricao: String;
-  valor: Float;
-  status: Status;
+  nome: String;
+  email: String;
+  senha: String;
   updatedAt: DateTimeOutput;
   createdAt: DateTimeOutput;
 }
 
-export interface OrderPromise extends Promise<Order>, Fragmentable {
+export interface UserPromise extends Promise<User>, Fragmentable {
   id: () => Promise<ID_Output>;
-  client: <T = ClientPromise>() => T;
-  descricao: () => Promise<String>;
-  valor: () => Promise<Float>;
-  status: () => Promise<Status>;
+  nome: () => Promise<String>;
+  email: () => Promise<String>;
+  senha: () => Promise<String>;
   updatedAt: () => Promise<DateTimeOutput>;
   createdAt: () => Promise<DateTimeOutput>;
 }
 
-export interface OrderSubscription
-  extends Promise<AsyncIterator<Order>>,
+export interface UserSubscription
+  extends Promise<AsyncIterator<User>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  client: <T = ClientSubscription>() => T;
-  descricao: () => Promise<AsyncIterator<String>>;
-  valor: () => Promise<AsyncIterator<Float>>;
-  status: () => Promise<AsyncIterator<Status>>;
+  nome: () => Promise<AsyncIterator<String>>;
+  email: () => Promise<AsyncIterator<String>>;
+  senha: () => Promise<AsyncIterator<String>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
-export interface OrderNullablePromise
-  extends Promise<Order | null>,
+export interface UserNullablePromise
+  extends Promise<User | null>,
     Fragmentable {
   id: () => Promise<ID_Output>;
-  client: <T = ClientPromise>() => T;
-  descricao: () => Promise<String>;
-  valor: () => Promise<Float>;
-  status: () => Promise<Status>;
+  nome: () => Promise<String>;
+  email: () => Promise<String>;
+  senha: () => Promise<String>;
   updatedAt: () => Promise<DateTimeOutput>;
   createdAt: () => Promise<DateTimeOutput>;
+}
+
+export interface AggregateClient {
+  count: Int;
+}
+
+export interface AggregateClientPromise
+  extends Promise<AggregateClient>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateClientSubscription
+  extends Promise<AsyncIterator<AggregateClient>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
 }
 
 export interface OrderConnection {
@@ -1081,27 +1201,27 @@ export interface AggregateOrderSubscription
   count: () => Promise<AsyncIterator<Int>>;
 }
 
-export interface UserEdge {
-  node: User;
+export interface ClientEdge {
+  node: Client;
   cursor: String;
 }
 
-export interface UserEdgePromise extends Promise<UserEdge>, Fragmentable {
-  node: <T = UserPromise>() => T;
+export interface ClientEdgePromise extends Promise<ClientEdge>, Fragmentable {
+  node: <T = ClientPromise>() => T;
   cursor: () => Promise<String>;
 }
 
-export interface UserEdgeSubscription
-  extends Promise<AsyncIterator<UserEdge>>,
+export interface ClientEdgeSubscription
+  extends Promise<AsyncIterator<ClientEdge>>,
     Fragmentable {
-  node: <T = UserSubscription>() => T;
+  node: <T = ClientSubscription>() => T;
   cursor: () => Promise<AsyncIterator<String>>;
 }
 
 /*
-The `Boolean` scalar type represents `true` or `false`.
+The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1.
 */
-export type Boolean = boolean;
+export type Int = number;
 
 /*
 The `ID` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as `"4"`) or integer (such as `4`) input value will be accepted as an ID.
@@ -1112,16 +1232,6 @@ export type ID_Output = string;
 export type Long = string;
 
 /*
-The `Float` scalar type represents signed double-precision fractional values as specified by [IEEE 754](https://en.wikipedia.org/wiki/IEEE_floating_point).
-*/
-export type Float = number;
-
-/*
-The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1.
-*/
-export type Int = number;
-
-/*
 DateTime scalar input type, allowing Date
 */
 export type DateTimeInput = Date | string;
@@ -1130,6 +1240,16 @@ export type DateTimeInput = Date | string;
 DateTime scalar output type, which is always a string
 */
 export type DateTimeOutput = string;
+
+/*
+The `Boolean` scalar type represents `true` or `false`.
+*/
+export type Boolean = boolean;
+
+/*
+The `Float` scalar type represents signed double-precision fractional values as specified by [IEEE 754](https://en.wikipedia.org/wiki/IEEE_floating_point).
+*/
+export type Float = number;
 
 /*
 The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.

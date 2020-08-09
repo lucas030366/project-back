@@ -18,9 +18,30 @@ type Mutation {
 
   signup(nome: String!, email: String!, senha: String!): AuthPayload
 
-  createClient(nome: String!, telefone: String!, endereco: String!): Client!
+  createClient(
+    nome: String!, 
+    telefone: String!, 
+    endereco: String!, 
+    cep: String, 
+    complemento: String, 
+    numero: Float, 
+    status_cli: Boolean, 
+    status_ord: Boolean, 
+    status_pay: Boolean
+    ): Client!
 
-  updateClient(clientId: ID!, nome: String!, telefone: String!, endereco: String!): Client!
+  updateClient(
+    clientId: ID!, 
+    nome: String!, 
+    telefone: String!, 
+    endereco: String!, 
+    cep: String, 
+    complemento: String, 
+    numero: Float, 
+    status_cli: Boolean, 
+    status_ord: Boolean, 
+    status_pay: Boolean
+    ): Client!
 
   deleteClient(clientId: ID!): Client
 
@@ -47,7 +68,13 @@ type Client {
   id: ID!
   nome: String!
   telefone: String!
-  endereco: String!
+  endereco: String
+  cep: String,
+  complemento: String,
+  numero: Float,
+  status_cli: Boolean,
+  status_ord: Boolean,
+  status_pay: Boolean,
   user: User!
 }
 
